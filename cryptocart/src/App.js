@@ -9,8 +9,9 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <NavLink className="nav-items" to="wishlist">Wishlist</NavLink>
-        <NavLink className="nav-items" to="cart">Cart</NavLink>
+      <NavLink end className="nav-items-home" activeClassName="nav-items-active" to="/">Home</NavLink>
+        <NavLink className="nav-items" activeClassName="nav-items-active" to="wishlist">Wishlist</NavLink>
+        <NavLink className="nav-items" activeClassName="nav-items-active" to="cart">Cart</NavLink>
       </nav>
       <div className="main">
         <Routes>
