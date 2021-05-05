@@ -24,7 +24,7 @@ export function Home(){
             <div className="title-main">Products</div>
             <div className="product-grid">
                 {ProductsDB.data.filter((item,idx)=>idx<4).map(product =>{
-                    return <Link className="linkTo" to={`/product/${product.slug}`}><div className="product-wrap">
+                    return <Link className="linkTo" to={`/product/${product.slug}`}><div key={product.id} className="product-wrap">
                         <img src={product.image} alt={product.slug} className="product-thumb"/>
                         <h2>{product.name}</h2>
                         <div className="product-price">Ξ {product.price}</div>

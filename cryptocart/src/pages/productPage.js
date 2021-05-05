@@ -1,8 +1,10 @@
 import {useParams} from "react-router-dom";
 import {ProductsDB} from "../productsDB";
 import "../stylesheets/productPage.css";
+import {useCart} from "../CartContext";
 
 export function ProductDetails(){
+    const {cartDispatch} = useCart();
     const {slug} = useParams();
     const product = ProductsDB.data.find(item => item.slug === slug)
     console.log(product.name)
@@ -13,7 +15,7 @@ export function ProductDetails(){
                 <div>{product.name}</div>
                 <div>{product.owner}</div>
                 <div>{product.price}</div>
-                <button>Add to Cart</button>
+                <button onClick={()=>cartDispatch({type:"ATC",payload:product})}>Add to Cart</button>
             </div>
         </div>
     )
