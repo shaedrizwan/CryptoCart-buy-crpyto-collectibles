@@ -72,7 +72,7 @@
 
 
 @media (max-width:800px){
-    .product-card{
+    .product-wrap{
         margin: 0rem;
         padding: 1rem;
         box-shadow: none;

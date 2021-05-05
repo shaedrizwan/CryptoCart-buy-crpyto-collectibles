@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export function Home(){
     return(
         <div className="home-container">
-            <img class="hero-image" alt="hero" src="https://cdn.mos.cms.futurecdn.net/oDCbWLXGzGoSbhWq9BqaQ5-1200-80.jpg"/>
+            <img class="hero-image" alt="hero" src="../assets/meebits.jpg"/>
             <div className="title-main">Categories</div>
             <div className="categories-container">
                 <div className="category">

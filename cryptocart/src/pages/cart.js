@@ -5,6 +5,13 @@ import {useCart} from "../CartContext";
 
 export function Cart(){
     const {cartState,cartDispatch} = useCart();
+
+    let {price} = cartState.reduce(function(previousValue, currentValue) {
+        return {
+          price: previousValue.price + currentValue.price
+        }
+      },{price:0});
+    
     return(
         <div className="cart-main">
             <div className="cart-pr-wrapper">
@@ -23,10 +30,10 @@ export function Cart(){
             </div>
             <div className="cart-checkout">
                 <h2>Total Price to pay</h2>
-                <div>Price:</div>
-                <div>Gas Fee:</div>
-                <div>Total Price:</div>
-                <div>You will save in gas fees on this order</div>
+                <div>Price: Ξ {price}</div>
+                <div>Gas Fee: Ξ {price*0.1} (10% of the </div>
+                <div>Total Price: Ξ {price + price*0.1}</div>
+                <div>You will save Ξ {price*0.05} in gas fees on this order</div>
             </div>
         </div>
     )
