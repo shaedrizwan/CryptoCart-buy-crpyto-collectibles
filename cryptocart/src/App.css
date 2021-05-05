@@ -31,3 +31,14 @@ nav {
 .main{
   padding: 1rem;
 }
+
+.item-notif{
+  padding: 0px 5px 2px 5px;
+  border-radius: 50%;
+  font-size: small;
+  position: relative;
+  bottom: 5px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}

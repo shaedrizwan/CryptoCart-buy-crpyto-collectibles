@@ -4,14 +4,18 @@ import {Cart} from "./pages/cart";
 import {Home} from "./pages/home";
 import {Wishlist} from "./pages/wishlist";
 import {ProductDetails} from "./pages/productPage";
+import{useCart} from "./CartContext";
+import { useWishlist } from './WishlistContext';
 
 function App() {
+  const {cartState} = useCart()
+  const {wishlistState} = useWishlist()
   return (
     <div className="App">
       <nav>
       <NavLink end className="nav-items-home" activeClassName="nav-items-active" to="/">Home</NavLink>
-        <NavLink className="nav-items" activeClassName="nav-items-active" to="wishlist">Wishlist</NavLink>
-        <NavLink className="nav-items" activeClassName="nav-items-active" to="cart">Cart</NavLink>
+        <NavLink className="nav-items" activeClassName="nav-items-active" to="wishlist">Wishlist {wishlistState.length !== 0 && <span className="item-notif">{wishlistState.length}</span>}</NavLink>
+        <NavLink className="nav-items" activeClassName="nav-items-active" to="cart">Cart {cartState.length !== 0 && <span className="item-notif">{cartState.length}</span>}</NavLink>
       </nav>
       <div className="main">
         <Routes>
