@@ -10,10 +10,26 @@ const cartItems = [];
 
 const cartHandler = (state,{type,payload}) => {
     switch(type){
-        case "ATC": return [...state,payload];
-        case "RFC": return(
-            state.filter(product => product.id !== payload.id)
-        )
+        case "ATC": {
+            const prod = state.find(item=>item.id === payload.id)
+            console.log(prod)
+            if(prod === undefined)
+            {
+                state = [...state,payload]
+                return state.map(product=>product.id===payload.id?{...product,quantity:1}:product)
+            }
+            else{
+                return state.map(product=>product.id===payload.id?{...product,quantity:product.quantity+1}:product)
+            }
+        }
+        case "RFC":{
+            if(payload.quantity === 1){
+                return state.filter(product => product.id !== payload.id)
+            }
+            else{
+                return state.map(product=>product.id === payload.id?{...product,quantity:product.quantity-1}:product)
+            }
+        }
         default: console.log("Error in displatch")
     }
 

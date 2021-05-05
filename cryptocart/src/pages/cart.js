@@ -8,7 +8,7 @@ export function Cart(){
 
     let {price} = cartState.reduce(function(previousValue, currentValue) {
         return {
-          price: previousValue.price + currentValue.price
+          price: previousValue.price + currentValue.price*currentValue.quantity
         }
       },{price:0});
     
@@ -23,15 +23,17 @@ export function Cart(){
                             <div>{product.name}</div>
                             <div>{product.owner}</div>
                             <div>{product.price}</div>
-                            <button onClick={()=>cartDispatch({type:"RFC",payload:product})}>Remove from Cart</button>
+                            <div>Quantity: {product.quantity}</div>
+                            <button onClick={()=>cartDispatch({type:"ATC",payload:product})}>+</button>
+                            <button onClick={()=>cartDispatch({type:"RFC",payload:product})}>-</button>
                         </div>
                     </div>
                 )})}
             </div>
-            <div className="cart-checkout">
+            <div className={cartState.length===0?"cart-checkout-hide":"cart-checkout"}>
                 <h2>Total Price to pay</h2>
                 <div>Price: Ξ {price}</div>
-                <div>Gas Fee: Ξ {price*0.1} (10% of the </div>
+                <div>Gas Fee: Ξ {price*0.1} (10% of the price) </div>
                 <div>Total Price: Ξ {price + price*0.1}</div>
                 <div>You will save Ξ {price*0.05} in gas fees on this order</div>
             </div>
