@@ -10,7 +10,6 @@ export const ProductsDB = {
             description:"enter description here",
             category:"art",
             bids:[],
-            inStock: true
         },
         {
             id:2,
@@ -22,7 +21,6 @@ export const ProductsDB = {
             description:"enter description here",
             category:"art",
             bids:[],
-            inStock: true
         },
         {
             id:3,
@@ -34,7 +32,6 @@ export const ProductsDB = {
             description:"enter description here",
             category:"art",
             bids:[],
-            inStock: false
         },{
             id:4,
             name:"Crypterior #129",
@@ -45,7 +42,6 @@ export const ProductsDB = {
             description:"enter description here",
             category:"art",
             bids:[],
-            inStock: false
         }
         // {
         //     id:1,

@@ -7,12 +7,14 @@
 }
 
 .cart-checkout{
-    min-width: 500px;
+    max-width: 40%;
     background-color: #ececee;
     margin-left: 2rem;
-    max-height: 20vh;
+    max-height: 30vh;
     padding: 1rem;
     border-radius: 1rem;
+    box-shadow:  11px 11px 22px #9fa4ad,
+                 -7px -7px 22px #ffffff;
 }
 
 .cart-checkout-hide{
@@ -52,6 +54,29 @@
 }
 
 @media(max-width:800px){
+    .cart-main{
+        display: block;
+        margin: 2rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .cart-product-container{
+        display: block;
+        margin: 0.5rem;
+    }
+
+    .cart-checkout{
+        max-width: 100%;
+        height: 40vh;
+        margin-top: 1rem;
+        margin-left: 0rem;
+    }
+
+    .cart-pr-wrapper{
+        min-width: 90%;
+    }
+
     .cart-product-image{
         max-width:50vw;
         max-height: 60vh;

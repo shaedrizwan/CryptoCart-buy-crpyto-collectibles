@@ -33,9 +33,10 @@ export function Cart(){
             <div className={cartState.length===0?"cart-checkout-hide":"cart-checkout"}>
                 <h2>Total Price to pay</h2>
                 <div>Price: Ξ {price}</div>
-                <div>Gas Fee: Ξ {price*0.1} (10% of the price) </div>
-                <div>Total Price: Ξ {price + price*0.1}</div>
-                <div>You will save Ξ {price*0.05} in gas fees on this order</div>
+                <div>Gas Fee: Ξ {(price*0.1).toFixed(2)} (10% of the price) </div>
+                <div>Total Price: Ξ {(price + price*0.1).toFixed(2)}</div>
+                <div>You will save Ξ {(price*0.05).toFixed(2)} in gas fees on this order</div>
+                <button>Checkout</button>
             </div>
         </div>
     )

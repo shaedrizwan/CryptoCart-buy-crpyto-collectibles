@@ -7,7 +7,7 @@
 .filter-container{
     background-color: #ececee;
     width: 250px;
-    height: 50vh;
+    height: 30vh;
     position: fixed;
     border-radius: 1rem;
     padding: 2rem;
@@ -40,4 +40,23 @@
 
 label{
     display: block;
+}
+
+@media(max-width: 800px){
+    .products-main{
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    .filter-container{
+        position:static;
+        max-height: 20vh;
+    }
+
+    .prod-grid{
+        display: flex;
+        flex-flow: row wrap;
+        margin-left: 0px;
+        justify-content: space-evenly;
+    }
 }

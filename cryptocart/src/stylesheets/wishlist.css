@@ -33,3 +33,10 @@
     padding: 1rem;
     margin: 1rem;
 }
+
+@media (max-width:800px){
+    .wishlist-product-container{
+        max-width: 100%;
+        justify-content: center;
+    }
+}

@@ -23,6 +23,7 @@ export function Products(){
     return (
         <div className="products-main">
             <div className="filter-container">
+                <h3 style={{padding:"1rem"}}>Sort by Price</h3>
                 <label>
                     <input
                         type="radio"

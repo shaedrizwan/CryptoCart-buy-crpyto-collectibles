@@ -78,4 +78,15 @@
         padding: 1rem;
         box-shadow: none;
     }
+
+    .hero-image{
+        border-radius: 0.5rem;
+        margin: 1rem 0rem;
+        max-width: 80vw;
+        max-height: 30vh;
+    }
+
+    .category{
+        padding: 0.5rem;
+    }
 }
