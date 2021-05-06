@@ -9,7 +9,8 @@ export const ProductsDB = {
             owner:"tyronejkd",
             description:"enter description here",
             category:"art",
-            bids:[]
+            bids:[],
+            inStock: true
         },
         {
             id:2,
@@ -20,7 +21,8 @@ export const ProductsDB = {
             owner:"International Megadigital",
             description:"enter description here",
             category:"art",
-            bids:[]
+            bids:[],
+            inStock: true
         },
         {
             id:3,
@@ -31,7 +33,8 @@ export const ProductsDB = {
             owner:"Dr Burry",
             description:"enter description here",
             category:"art",
-            bids:[]
+            bids:[],
+            inStock: false
         },{
             id:4,
             name:"Crypterior #129",
@@ -41,7 +44,8 @@ export const ProductsDB = {
             owner:"Dr Burry",
             description:"enter description here",
             category:"art",
-            bids:[]
+            bids:[],
+            inStock: false
         }
         // {
         //     id:1,

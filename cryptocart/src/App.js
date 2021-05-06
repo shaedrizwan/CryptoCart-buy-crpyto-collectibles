@@ -6,6 +6,7 @@ import {Wishlist} from "./pages/wishlist";
 import {ProductDetails} from "./pages/productPage";
 import{useCart} from "./CartContext";
 import { useWishlist } from './WishlistContext';
+import { Products} from "./pages/products";
 
 function App() {
   const {cartState} = useCart()
@@ -23,6 +24,7 @@ function App() {
           <Route path="cart" element={<Cart/>}/>
           <Route path="wishlist" element={<Wishlist/>}/>
           <Route path="product/:slug" element={<ProductDetails/>}/>
+          <Route path="products" element={<Products/>}/>
         </Routes>
       </div>
     </div>

@@ -33,6 +33,7 @@ export function Home(){
                     </Link>
                 })}
             </div>
+            <Link to="products" ><button>View All Products</button></Link>
         </div>
     )
 }

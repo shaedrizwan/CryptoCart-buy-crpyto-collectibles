@@ -1,0 +1,43 @@
+
+.products-main{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.filter-container{
+    background-color: #ececee;
+    width: 250px;
+    height: 50vh;
+    position: fixed;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.prod-grid{
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 320px;
+    justify-content: space-evenly;
+}
+
+.linkTo{
+    text-decoration: none;
+    color: black;
+}
+
+.prod-wrap{
+    margin: 1rem;
+    padding: 2rem;
+    box-shadow:  11px 11px 22px #9fa4ad,
+                 -7px -7px 22px #ffffff;
+}
+
+.prod-thumb{
+    max-width: 220px;
+    max-height: 350px;
+    border-radius: 1rem;
+}
+
+label{
+    display: block;
+}
