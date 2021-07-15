@@ -1,9 +1,11 @@
 import "../stylesheets/products.css"
-import {ProductsDB} from "../productsDB"
 import {Link} from "react-router-dom"
 import {useReducer} from "react"
+import { useProduct } from "../ProductContext"
 
 export function Products(){
+
+    const {products} = useProduct();
 
     function getSortedData(state, action) {
     if (action.type === "PRICE_HIGH_TO_LOW") {
@@ -16,7 +18,7 @@ export function Products(){
     return state;
   }
 
-  const [state,dispatch] = useReducer(getSortedData,ProductsDB);
+  const [state,dispatch] = useReducer(getSortedData,products);
 
 
 
@@ -50,8 +52,9 @@ export function Products(){
 
             </div>
             <div className="prod-grid">
-                {state.data.map(product =>{
-                    return <Link className="linkTo" to={`/product/${product.slug}`}><div key={product.id} className="prod-wrap">
+                {!products && <div>Products are loading.. Please wait!!</div>}
+                {products && products.map(product =>{
+                    return <Link className="linkTo" key={product._id} to={`/product/${product.slug}`}><div className="prod-wrap">
                         <img src={product.image} alt={product.slug} className="prod-thumb"/>
                         <h2>{product.name}</h2>
                         <div className="product-price">Ξ {product.price}</div>

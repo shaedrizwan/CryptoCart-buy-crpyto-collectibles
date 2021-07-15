@@ -1,12 +1,10 @@
 import "../stylesheets/home.css"
-import {ProductsDB} from "../productsDB";
 import { Link } from "react-router-dom";
 import { useProduct } from "../ProductContext";
 
 export function Home(){
 
     const {products} = useProduct();
-    console.log(products)
     return(
         <div className="home-container">
             <img className="hero-image" alt="hero" src="../assets/meebits.jpg"/>
