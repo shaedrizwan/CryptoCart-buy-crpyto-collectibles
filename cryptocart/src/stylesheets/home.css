@@ -51,6 +51,7 @@
     flex-flow: row wrap;
     margin: 2rem;
     justify-content: center;
+    flex-grow: 1;
 }
 
 .linkTo{
@@ -61,13 +62,16 @@
 .product-wrap{
     margin: 1rem;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     box-shadow:  11px 11px 22px #9fa4ad,
                  -7px -7px 22px #ffffff;
 }
 
 .product-thumb{
     max-width: 250px;
-    max-height: 350px;
+    max-height: 300px;
     border-radius: 1rem;
 }
 

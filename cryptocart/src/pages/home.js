@@ -1,11 +1,15 @@
 import "../stylesheets/home.css"
 import {ProductsDB} from "../productsDB";
 import { Link } from "react-router-dom";
+import { useProduct } from "../ProductContext";
 
 export function Home(){
+
+    const {products} = useProduct();
+    console.log(products)
     return(
         <div className="home-container">
-            <img class="hero-image" alt="hero" src="../assets/meebits.jpg"/>
+            <img className="hero-image" alt="hero" src="../assets/meebits.jpg"/>
             <div className="title-main">Categories</div>
             <div className="categories-container">
                 <div className="category">
@@ -23,8 +27,9 @@ export function Home(){
             </div>
             <div className="title-main">Products</div>
             <div className="product-grid">
-                {ProductsDB.data.filter((item,idx)=>idx<4).map(product =>{
-                    return <Link className="linkTo" to={`/product/${product.slug}`}><div key={product.id} className="product-wrap">
+                {!products && <div>Products loading... please wait!</div>}
+                {products && products.filter((item,idx)=>idx<4).map(product =>{
+                    return <Link className="linkTo" key={product._id} to={`/product/${product.slug}`}><div className="product-wrap">
                         <img src={product.image} alt={product.slug} className="product-thumb"/>
                         <h2>{product.name}</h2>
                         <div className="product-price">Ξ {product.price}</div>
