@@ -2,30 +2,31 @@ import "../stylesheets/cart.css"
 import {useCart} from "../CartContext";
 
 
-
 export function Cart(){
-    const {cartState,cartDispatch} = useCart();
+    const {cartState,addToCartHandler,removeFromCartHandler} = useCart();
 
     let {price} = cartState.reduce(function(previousValue, currentValue) {
+        console.log(previousValue,currentValue.product.price)
         return {
-          price: previousValue.price + currentValue.price*currentValue.quantity
+          price: previousValue.price + currentValue.product.price*currentValue.quantity
         }
       },{price:0});
+
     
     return(
         <div className="cart-main">
             <div className="cart-pr-wrapper">
-                {cartState.length === 0?<div>Cart is Empty</div> : cartState.map(product =>{
+                {cartState.length === 0?<div>Cart is Empty</div> : cartState.map(({product,quantity}) =>{
                     return (
-                        <div key={product.id} className="cart-product-container">
+                        <div key={product._id} className="cart-product-container">
                         <img src={product.image} alt={product.slug} className="cart-product-image"/>
                         <div className="cart-product-details-wrap">
                             <div>{product.name}</div>
                             <div>{product.owner}</div>
                             <div>{product.price}</div>
-                            <div>Quantity: {product.quantity}</div>
-                            <button onClick={()=>cartDispatch({type:"ATC",payload:product})}>+</button>
-                            <button onClick={()=>cartDispatch({type:"RFC",payload:product})}>-</button>
+                            <div>Quantity: {quantity}</div>
+                            <button onClick={()=>addToCartHandler(product)}>+</button>
+                            <button onClick={()=>removeFromCartHandler(product,quantity)}>-</button>
                         </div>
                     </div>
                 )})}

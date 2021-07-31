@@ -8,6 +8,10 @@ import{useCart} from "./CartContext";
 import { useWishlist } from './WishlistContext';
 import { Products} from "./pages/products";
 import { Login } from './pages/login';
+import {toast} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure()
 
 function App() {
   const {cartState} = useCart()

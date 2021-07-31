@@ -8,17 +8,20 @@ export function Products(){
     const {products} = useProduct();
 
     function getSortedData(state, action) {
+        console.log(state)
     if (action.type === "PRICE_HIGH_TO_LOW") {
-        return { ...state, data: state.data.sort((a, b) => b.price - a.price) };
+        // return { ...state, data: state.data.sort((a, b) => b.price - a.price) };
+        return state.sort((a,b)=>b.price-a.price)
     }
 
     if (action.type === "PRICE_LOW_TO_HIGH") {
-        return { ...state, data: state.data.sort((a, b) => a.price - b.price) };
+        // return { ...state, data: state.data.sort((a, b) => a.price - b.price) };
+        return state.sort((a,b)=>a.price-b.price)
     }
     return state;
   }
 
-  const [state,dispatch] = useReducer(getSortedData,products);
+  const [state,sortDispatch] = useReducer(getSortedData,products);
 
 
 
@@ -31,7 +34,7 @@ export function Products(){
                         type="radio"
                         name="sort"
                         onClick={() =>
-                        dispatch({ type: "PRICE_HIGH_TO_LOW" })
+                        sortDispatch({ type: "PRICE_HIGH_TO_LOW" })
                         }
                         >
                     </input>{" "}
@@ -43,7 +46,7 @@ export function Products(){
                         type="radio"
                         name="sort"
                         onClick={() =>
-                        dispatch({ type:"PRICE_LOW_TO_HIGH" })
+                        sortDispatch({ type:"PRICE_LOW_TO_HIGH" })
                         }
                         >
                     </input>{" "}
@@ -52,8 +55,8 @@ export function Products(){
 
             </div>
             <div className="prod-grid">
-                {!products && <div>Products are loading.. Please wait!!</div>}
-                {products && products.map(product =>{
+                {!state && <div>Products are loading.. Please wait!!</div>}
+                {state && state.map(product =>{
                     return <Link className="linkTo" key={product._id} to={`/product/${product.slug}`}><div className="prod-wrap">
                         <img src={product.image} alt={product.slug} className="prod-thumb"/>
                         <h2>{product.name}</h2>

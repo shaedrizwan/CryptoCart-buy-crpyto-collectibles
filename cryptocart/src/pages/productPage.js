@@ -4,9 +4,10 @@ import {useCart} from "../CartContext";
 import {useWishlist} from "../WishlistContext";
 import { useProduct } from "../ProductContext";
 
+
 export function ProductDetails(){
-    const {cartDispatch} = useCart();
-    const {wishlistDispatch} = useWishlist();
+    const {addToCartHandler} = useCart();
+    const {addToWishList} = useWishlist();
     const {slug} = useParams();
     const {products} = useProduct();
     let product = []
@@ -14,6 +15,7 @@ export function ProductDetails(){
     if(products){
         product = products.find(item => item.slug === slug)
     }
+
     
     return(
         <>
@@ -24,8 +26,8 @@ export function ProductDetails(){
                 <div>{product.name}</div>
                 <div>{product.owner}</div>
                 <div>{product.price}</div>
-                <button onClick={()=>cartDispatch({type:"ATC",payload:product})}>Add to Cart</button>
-                <button onClick={()=>wishlistDispatch({type:"ATW",payload:product})}>Add to Wishlist</button>
+                <button onClick={()=>addToCartHandler(product)}>Add to Cart</button>
+                <button onClick={()=>addToWishList(product)}>Add to Wishlist</button>
             </div>
         </div>}
         </>

@@ -27,7 +27,11 @@ export function AuthProvider({children}){
             setToken(response.data.token)
             localStorage?.setItem("login",JSON.stringify({isLoggedIn:true,token:response.data.token}))
         }
+        else if(response.status !== 200){
+            console.log("login error")
+        }
     }
+
 
     const logoutUser = () =>{
         setLogin(false)

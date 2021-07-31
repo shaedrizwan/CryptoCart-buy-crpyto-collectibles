@@ -7,6 +7,7 @@ export function Login(){
     let username, password;
 
     const loginHandler = () =>{
+        console.log(username,password)
         loginUser(username,password)
     }
 
